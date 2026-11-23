@@ -124,7 +124,7 @@ const VoiceActor = sequelize.define(
   { tableName: 'Voice_Actor', timestamps: false }
 );
 
-// ---------- Junction / through tables ----------
+
 
 const EpisodeAlienForm = sequelize.define(
   'EpisodeAlienForm',
@@ -195,11 +195,11 @@ Season.belongsTo(Series, { foreignKey: 'series_id' });
 Season.hasMany(Episode, { foreignKey: 'season_id', onDelete: 'CASCADE' });
 Episode.belongsTo(Season, { foreignKey: 'season_id' });
 
-// Location 1—N Species (homeworld)
+// Location 1—N Species 
 Location.hasMany(Species, { foreignKey: 'homeworld_id', as: 'SpeciesHomeworld' });
 Species.belongsTo(Location, { foreignKey: 'homeworld_id', as: 'Homeworld' });
 
-// Location 1—N Organization (base)
+// Location 1—N Organization 
 Location.hasMany(Organization, { foreignKey: 'base_location_id', as: 'OrganizationsAtBase' });
 Organization.belongsTo(Location, { foreignKey: 'base_location_id', as: 'BaseLocation' });
 
@@ -211,11 +211,11 @@ Character.belongsTo(Species, { foreignKey: 'species_id' });
 Species.hasMany(AlienForm, { foreignKey: 'species_id' });
 AlienForm.belongsTo(Species, { foreignKey: 'species_id' });
 
-// Episode 1—N Character (first appearance) — circular; keep nullable
+// Episode 1—N Character 
 Episode.hasMany(Character, { foreignKey: 'first_episode_id', as: 'CharactersDebuting' });
 Character.belongsTo(Episode, { foreignKey: 'first_episode_id', as: 'FirstEpisode' });
 
-// Episode 1—N AlienForm (first appearance) — circular; keep nullable
+// Episode 1—N AlienForm 
 Episode.hasMany(AlienForm, { foreignKey: 'first_episode_id', as: 'AlienFormsDebuting' });
 AlienForm.belongsTo(Episode, { foreignKey: 'first_episode_id', as: 'FirstEpisode' });
 
@@ -223,7 +223,7 @@ AlienForm.belongsTo(Episode, { foreignKey: 'first_episode_id', as: 'FirstEpisode
 Character.hasMany(Device, { foreignKey: 'owner_character_id' });
 Device.belongsTo(Character, { foreignKey: 'owner_character_id', as: 'Owner' });
 
-// Episode N—M AlienForm (times_used)
+// Episode N—M AlienForm 
 Episode.belongsToMany(AlienForm, {
   through: EpisodeAlienForm,
   foreignKey: 'episode_id',

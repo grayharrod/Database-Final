@@ -1,0 +1,166 @@
+<mxfile host="app.diagrams.net" agent="Claude">
+  <diagram id="ben10-erd-v3" name="Ben 10 ERD">
+    <mxGraphModel dx="823" dy="924" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2000" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t_Series" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;Series&lt;/b&gt;&lt;hr&gt;series_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;PK&lt;/b&gt;&lt;br&gt;title &lt;i&gt;VARCHAR(100)&lt;/i&gt;&lt;br&gt;release_year &lt;i&gt;INT&lt;/i&gt;&lt;br&gt;network &lt;i&gt;VARCHAR(50)&lt;/i&gt;" vertex="1">
+          <mxGeometry height="112" width="240" x="40" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="t_Season" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;Season&lt;/b&gt;&lt;hr&gt;season_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;PK&lt;/b&gt;&lt;br&gt;series_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;FK&lt;/b&gt;&lt;br&gt;season_number &lt;i&gt;INT&lt;/i&gt;&lt;br&gt;year &lt;i&gt;INT&lt;/i&gt;" vertex="1">
+          <mxGeometry height="112" width="240" x="320" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="t_Episode" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;Episode&lt;/b&gt;&lt;hr&gt;episode_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;PK&lt;/b&gt;&lt;br&gt;season_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;FK&lt;/b&gt;&lt;br&gt;title &lt;i&gt;VARCHAR(150)&lt;/i&gt;&lt;br&gt;episode_number &lt;i&gt;INT&lt;/i&gt;&lt;br&gt;air_date &lt;i&gt;DATE&lt;/i&gt;" vertex="1">
+          <mxGeometry height="130" width="240" x="600" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="t_Species" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;Species&lt;/b&gt;&lt;hr&gt;species_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;PK&lt;/b&gt;&lt;br&gt;name &lt;i&gt;VARCHAR(100)&lt;/i&gt;&lt;br&gt;homeworld_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;FK&lt;/b&gt;" vertex="1">
+          <mxGeometry height="94" width="240" x="1160" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="t_Location" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;Location&lt;/b&gt;&lt;hr&gt;location_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;PK&lt;/b&gt;&lt;br&gt;name &lt;i&gt;VARCHAR(100)&lt;/i&gt;&lt;br&gt;type &lt;i&gt;VARCHAR(30)&lt;/i&gt;&lt;br&gt;galaxy &lt;i&gt;VARCHAR(50)&lt;/i&gt;" vertex="1">
+          <mxGeometry height="112" width="240" x="1160" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="t_Organization" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;Organization&lt;/b&gt;&lt;hr&gt;org_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;PK&lt;/b&gt;&lt;br&gt;name &lt;i&gt;VARCHAR(100)&lt;/i&gt;&lt;br&gt;type &lt;i&gt;VARCHAR(50)&lt;/i&gt;&lt;br&gt;base_location_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;FK&lt;/b&gt;" vertex="1">
+          <mxGeometry height="112" width="240" x="1440" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="t_Character" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;Character&lt;/b&gt;&lt;hr&gt;character_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;PK&lt;/b&gt;&lt;br&gt;name &lt;i&gt;VARCHAR(100)&lt;/i&gt;&lt;br&gt;species_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;FK&lt;/b&gt;&lt;br&gt;gender &lt;i&gt;VARCHAR(20)&lt;/i&gt;&lt;br&gt;is_human &lt;i&gt;BOOLEAN&lt;/i&gt;&lt;br&gt;first_episode_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;FK&lt;/b&gt;" vertex="1">
+          <mxGeometry height="148" width="240" x="880" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="t_Alien_Form" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;Alien_Form&lt;/b&gt;&lt;hr&gt;alien_form_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;PK&lt;/b&gt;&lt;br&gt;name &lt;i&gt;VARCHAR(100)&lt;/i&gt;&lt;br&gt;species_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;FK&lt;/b&gt;&lt;br&gt;power_level &lt;i&gt;INT&lt;/i&gt;&lt;br&gt;first_episode_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;FK&lt;/b&gt;" vertex="1">
+          <mxGeometry height="130" width="240" x="1160" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="t_Ability" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;Ability&lt;/b&gt;&lt;hr&gt;ability_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;PK&lt;/b&gt;&lt;br&gt;name &lt;i&gt;VARCHAR(100)&lt;/i&gt;&lt;br&gt;description &lt;i&gt;VARCHAR(100)&lt;/i&gt;" vertex="1">
+          <mxGeometry height="94" width="240" x="1720" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="t_Device" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;Device&lt;/b&gt;&lt;hr&gt;device_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;PK&lt;/b&gt;&lt;br&gt;name &lt;i&gt;VARCHAR(100)&lt;/i&gt;&lt;br&gt;owner_character_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;FK&lt;/b&gt;&lt;br&gt;description &lt;i&gt;VARCHAR(100)&lt;/i&gt;" vertex="1">
+          <mxGeometry height="112" width="240" x="880" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="t_Voice_Actor" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;Voice_Actor&lt;/b&gt;&lt;hr&gt;actor_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;PK&lt;/b&gt;&lt;br&gt;name &lt;i&gt;VARCHAR(100)&lt;/i&gt;" vertex="1">
+          <mxGeometry height="76" width="240" x="40" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="t_Episode_Alien_Form" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;b&gt;Episode_Alien_Form&lt;/b&gt;&lt;hr&gt;episode_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;PK, FK&lt;/b&gt;&lt;br&gt;alien_form_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;PK, FK&lt;/b&gt;&lt;br&gt;times_used &lt;i&gt;INT&lt;/i&gt;" vertex="1">
+          <mxGeometry height="94" width="240" x="600" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="t_Alien_Form_Ability" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;b&gt;Alien_Form_Ability&lt;/b&gt;&lt;hr&gt;alien_form_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;PK, FK&lt;/b&gt;&lt;br&gt;ability_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;PK, FK&lt;/b&gt;" vertex="1">
+          <mxGeometry height="76" width="240" x="1440" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="t_Episode_Location" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;b&gt;Episode_Location&lt;/b&gt;&lt;hr&gt;episode_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;PK, FK&lt;/b&gt;&lt;br&gt;location_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;PK, FK&lt;/b&gt;" vertex="1">
+          <mxGeometry height="76" width="240" x="880" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="t_Episode_Character" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;b&gt;Episode_Character&lt;/b&gt;&lt;hr&gt;episode_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;PK, FK&lt;/b&gt;&lt;br&gt;character_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;PK, FK&lt;/b&gt;&lt;br&gt;role_type &lt;i&gt;VARCHAR(20)&lt;/i&gt;" vertex="1">
+          <mxGeometry height="94" width="240" x="600" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="t_Character_Organization" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;b&gt;Character_Organization&lt;/b&gt;&lt;hr&gt;character_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;PK, FK&lt;/b&gt;&lt;br&gt;org_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;PK, FK&lt;/b&gt;&lt;br&gt;rank &lt;i&gt;VARCHAR(50)&lt;/i&gt;&lt;br&gt;joined_season_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;FK&lt;/b&gt;" vertex="1">
+          <mxGeometry height="112" width="240" x="1440" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="t_Character_Voice" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;b&gt;Character_Voice&lt;/b&gt;&lt;hr&gt;character_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;PK, FK&lt;/b&gt;&lt;br&gt;actor_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;PK, FK&lt;/b&gt;&lt;br&gt;season_id &lt;i&gt;INT&lt;/i&gt; &lt;b&gt;PK, FK&lt;/b&gt;" vertex="1">
+          <mxGeometry height="94" width="240" x="320" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="t_Series" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;" target="t_Season">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="t_Season" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;" target="t_Episode">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="t_Species" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;" target="t_Character">
+          <mxGeometry relative="1" x="-0.1685" as="geometry">
+            <Array as="points">
+              <mxPoint x="1220" y="460" />
+              <mxPoint x="1050" y="460" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="t_Species" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;" target="t_Alien_Form">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="t_Location" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;" target="t_Species">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="t_Location" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;" target="t_Organization">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="t_Organization" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;" target="t_Character_Organization">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="t_Character" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;" target="t_Character_Organization">
+          <mxGeometry relative="1" x="-0.39" as="geometry">
+            <Array as="points">
+              <mxPoint x="1810" y="730" />
+              <mxPoint x="1810" y="376" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="t_Season" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;" target="t_Character_Organization">
+          <mxGeometry relative="1" x="0.321" as="geometry">
+            <Array as="points">
+              <mxPoint x="440" y="200" />
+              <mxPoint x="1570" y="200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="t_Episode" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;" target="t_Episode_Character">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="t_Character" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;" target="t_Episode_Character">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="t_Episode" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;" target="t_Episode_Alien_Form">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="t_Alien_Form" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;" target="t_Episode_Alien_Form">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" edge="1" parent="1" source="t_Episode" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;" target="t_Episode_Location">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" edge="1" parent="1" source="t_Location" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;" target="t_Episode_Location">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1110" y="656" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e16" edge="1" parent="1" source="t_Alien_Form" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;" target="t_Alien_Form_Ability">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e17" edge="1" parent="1" source="t_Ability" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;" target="t_Alien_Form_Ability">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e18" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="t_Character_Voice">
+          <mxGeometry relative="1" x="0.0767" as="geometry">
+            <mxPoint x="880" y="720" as="sourcePoint" />
+            <mxPoint x="440" y="926" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e19" edge="1" parent="1" source="t_Voice_Actor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;" target="t_Character_Voice">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e20" edge="1" parent="1" source="t_Season" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;" target="t_Character_Voice">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="360" y="660" />
+              <mxPoint x="360" y="660" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e21" edge="1" parent="1" source="t_Character" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;" target="t_Device">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e22" edge="1" parent="1" source="t_Episode" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;" target="t_Character">
+          <mxGeometry relative="1" x="-0.163" as="geometry">
+            <Array as="points">
+              <mxPoint x="940" y="430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e23" edge="1" parent="1" source="t_Episode" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;" target="t_Alien_Form">
+          <mxGeometry relative="1" x="-0.0727" as="geometry">
+            <Array as="points">
+              <mxPoint x="820" y="290" />
+              <mxPoint x="1220" y="290" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
