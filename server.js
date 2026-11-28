@@ -3,21 +3,38 @@
 //
 // Run from the repo root (so db.js finds .env):
 //   node server.js
-// Then open http://localhost:3000/api in a browser for the list of endpoints.
+// Then open http://localhost:3000 for the GUI, or /api for the endpoint list.
 //
 // Routes:
+//   /                      GUI (browse, ask, reports)
 //   /api/<resource>        CRUD for each main table (see routes/crud.js)
 //   /api/reports/...       multi-table JOIN, VIEW, STORED PROCEDURE, INDEX demo
-//                          (see routes/reports.js)
+//   /api/ask               natural-language question -> SELECT -> answer
 
+const path = require('path');
 const express = require('express');
 const models = require('./models');
 const crud = require('./routes/crud');
 const reports = require('./routes/reports');
+const ask = require('./routes/ask');
 const { errorHandler } = require('./routes/errors');
 
 const { sequelize } = models;
 const PORT = Number(process.env.PORT) || 3000;
+
+const LABELS = {
+  characters: 'Characters',
+  aliens: 'Alien forms',
+  episodes: 'Episodes',
+  series: 'Series',
+  seasons: 'Seasons',
+  species: 'Species',
+  locations: 'Locations',
+  abilities: 'Abilities',
+  organizations: 'Organizations',
+  devices: 'Devices',
+  'voice-actors': 'Voice actors',
+};
 
 const app = express();
 app.use(express.json());
@@ -90,9 +107,30 @@ for (const r of RESOURCES) {
   app.use(`/api/${r.path}`, crud(r));
 }
 app.use('/api/reports', reports);
+app.use('/api/ask', ask);
 
-// Index page: lists every endpoint so you can click around in a browser.
-app.get(['/', '/api'], (req, res) => {
+app.get('/api/meta', (req, res) => {
+  res.json({
+    resources: RESOURCES.map((r) => ({
+      path: r.path,
+      label: LABELS[r.path] || r.path,
+      search: r.search || null,
+      dateFilter: r.dateFilter || null,
+      primaryKey: r.model.primaryKeyAttribute,
+      columns: Object.entries(r.model.rawAttributes).map(([name, attr]) => ({
+        name,
+        type: attr.type.key,
+        allowNull: attr.allowNull !== false,
+        primaryKey: Boolean(attr.primaryKey),
+        autoIncrement: Boolean(attr.autoIncrement),
+        maxLength: attr.type.options && attr.type.options.length ? attr.type.options.length : null,
+      })),
+    })),
+  });
+});
+
+// Endpoint list. The GUI is served from public/ at /.
+app.get('/api', (req, res) => {
   res.json({
     message: 'Ben 10 database API',
     crud: RESOURCES.map((r) => ({
@@ -108,9 +146,12 @@ app.get(['/', '/api'], (req, res) => {
       'GET /api/reports/character-episodes?name=Kevin       (calls the STORED PROCEDURE sp_character_episodes)',
       'GET /api/reports/index-demo?from=2010-01-01&to=2010-12-31  (EXPLAIN shows idx_episode_air_date is used)',
       'GET /api/reports/constraints                         (lists the UNIQUE / CHECK / INDEX constraints)',
+      'POST /api/ask   { "question": "..." }               (natural language -> SELECT -> answer)',
     ],
   });
 });
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res) => res.status(404).json({ error: `No route for ${req.method} ${req.path}` }));
 app.use(errorHandler); // turns constraint errors into readable JSON (routes/errors.js)
@@ -119,7 +160,8 @@ async function start() {
   await sequelize.authenticate();
   app.listen(PORT, () => {
     console.log(`Connected to MySQL database "${sequelize.config.database}"`);
-    console.log(`API running at http://localhost:${PORT}/api`);
+    console.log(`GUI at http://localhost:${PORT}`);
+    console.log(`API at http://localhost:${PORT}/api`);
   });
 }
 

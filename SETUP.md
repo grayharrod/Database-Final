@@ -86,8 +86,10 @@ Two values are worked out from wiki data rather than read directly:
 
 Wiki text is CC BY-SA, so credit ben10.fandom.com in the slides.
 
-## Next: the API
+## Next: the API and the GUI
 
 After the data is loaded, `node scripts/setup_sql.js` creates the VIEW and the
-STORED PROCEDURE, and `npm run api` starts the REST API. See `API.md` for the
+STORED PROCEDURE, and `npm run api` starts the server. Open
+http://localhost:3000 for the GUI (browse, create, edit, delete, and natural-language
+questions). Copy `LLM_API_KEY` into `.env` before using Ask. See `API.md` for the
 endpoints and the step-by-step demo.

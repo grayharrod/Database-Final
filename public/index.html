@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Omnitrix Archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Oxanium:wght@500;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside>
+      <div class="brand">
+        <span class="dial" aria-hidden="true"><span></span></span>
+        <div>
+          <p class="kicker">Ben 10</p>
+          <h1>Omnitrix Archive</h1>
+        </div>
+      </div>
+      <nav class="side-nav" aria-label="Sections">
+        <button type="button" class="nav-btn is-active" data-view="browse">Browse</button>
+        <button type="button" class="nav-btn" data-view="ask">Ask</button>
+        <button type="button" class="nav-btn" data-view="reports">Reports</button>
+      </nav>
+      <p class="credit">Episode, character, and alien rows come from ben10.fandom.com (CC BY-SA).</p>
+    </aside>
+    <main>
+      <header class="topbar">
+        <div>
+          <p class="kicker" id="kicker">Archive</p>
+          <h2 id="title">Characters</h2>
+        </div>
+        <p class="status" id="status" aria-live="polite"></p>
+      </header>
+      <section id="view" class="view"></section>
+    </main>
+  </div>
+  <dialog id="editor" aria-labelledby="editor-title"></dialog>
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -15,8 +15,12 @@ None of Grayson's files are changed. The new files are:
 | `routes/errors.js` | Turns a broken constraint into a clear JSON message instead of a crash |
 | `sql/view_and_procedure.sql` | `CREATE VIEW v_alien_usage` and `CREATE PROCEDURE sp_character_episodes` |
 | `scripts/setup_sql.js` | Runs that .sql file for you |
+| `public/` | GUI: browse and edit every main table, ask a question, run the SQL demos |
+| `routes/ask.js` | Turns a question into one SELECT, runs it, and answers from those rows |
 
 `package.json` gets one new dependency (`express`) and one new script (`npm run api`).
+
+Open http://localhost:3000 after `npm run api`. Browse is the CRUD screen. Ask needs `LLM_API_KEY` in `.env` (see `.env.example`); it writes a SELECT, runs it on this database, and answers from the rows. Reports runs the join, view, stored procedure, index, and constraint demos in the same window.
 
 ---
 
